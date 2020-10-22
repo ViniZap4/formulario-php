@@ -481,13 +481,13 @@ select * {
   -webkit-backdrop-filter: blur(1vmin);
           backdrop-filter: blur(1vmin);
   border-radius: 0.45vmin;
-  -webkit-animation: iniBoxPop 0.9s  linear;
-          animation: iniBoxPop 0.9s  linear;
+  -webkit-animation: iniBoxPop 1s 0.27s linear;
+          animation: iniBoxPop 1s 0.27s linear;
   -webkit-box-shadow: 0 0 9vmin #505050;
           box-shadow: 0 0 9vmin #505050;
 }
 
-.invalidSpam {
+.invalidBox .invalidSpam {
   font-family: "comfortaa";
   color: #fff;
   font-size: 2vh;

@@ -12,8 +12,8 @@ if(validCpf($cpf) == true){
 
   function createContent($name, $post){
     $content='<span class="viewItem"> 
-<span class="titleView">'.$name.':</span>
-<span class="contentView">'.$post.'</span>  
+  <span class="titleView">'.$name.':</span>
+  <span class="contentView">'.$post.'</span>  
 </span>
   ';
     return $content;
@@ -97,89 +97,85 @@ if(validCpf($cpf) == true){
 
 ?>
 
-<?php 
-
-  function validCpf($cpf){
-  
-    $countValue=0;
-  
-    for($i=0; $i<(strlen($cpf)); $i++){
-      if(is_numeric($cpf[$i])){
-        $num[$countValue]=$cpf[$i];
-        $countValue++;
-      }
-    }
-
-    if(count($num)!=11){
-      $cpfValid = false;
-    }else{
-      $valid = 0;
-      for($i=0; $i<10;$i++){ // validar numeros de 0 à 9
-        
-        for($j=0; $j<11; $j++){ // validar casa da váriavel numbers
-          if ($num[$j]==$i){
+<?php
+ function validCpf($cpf){
+         
+      $countValue=0;
+			for($i=0; $i<(strlen($cpf)); $i++){
+					if(is_numeric($cpf[$i])){
+            $num[$countValue]=$cpf[$i];
+            $countValue++;
+					}
+			}
+      
+      
+      if(count($num)!=11){
+        $validCpf = false;
+      }else{
+        $valid = 0;
+        for($i=0; $i<10;$i++){ // validar numeros de 0 à 9
             
-            if($valid == 10){  // validar se todos os valores da váriavel numbers são iguais 
-              $cpfValid = false;
-              break; 
+          for($countValue=0; $countValue<11; $countValue++){ // validar casa da váriavel numbers
 
-            }else $valid++;
+            if ($num[$countValue]==$i){
 
-          }else{
-            $valid = 0;
-            break;
+              if($valid == 10){  // validar se todos os valores da váriavel numbers são iguais 
+                $validCpf = false;
+                break; 
+              }else $valid++;
+
+            }else{
+              $valid = 0;
+              break;
+            }
           }
         }
       }
-    }
-
-    if(!isset($cpfValid)){
-    
-      $countValue=10;
-    
-      for($i=0; $i<9; $i++){
-        $multiplication[$i] = $num[$i]*$countValue;
-        $countValue--;
-      }
-    
-      $sum = array_sum($multiplication);	
-      $rest = $sum%11;			
-    
-      if($rest<2){
-          $dg=0;
-      }else{
-        $dg = 11-$rest;
-      }
-      if($dg!=$num[9]){
-        $cpfValid=false;
-      }
-    }
-
-    if(!isset($cpfValid)){
-    
-      $countValue = 11;
-    
-      for($i=0; $i<10; $i++){
-        $multiplication[$i]=$num[$i]*$countValue;
-        $countValue--;
-      }
-    
-      $sum = array_sum($multiplication);
-      $rest = $sum%11;
-    
-      if($rest<2){
-          $dg=0;
-      }else{
-        $dg=11-$rest;
-      }
+			if(!isset($validCpf)){
+        $countValue=10;
       
-      if($dg!=$num[10]){
-        $cpfValid=false;
+        for($i=0; $i<9; $i++){
+          $multiplica[$i]=$num[$i]*$countValue;
+          $countValue--;
+        }
+        
+        $sum = array_sum($multiplica);	
+        $rest = $sum%11;			
+        
+        if($rest<2){
+          $dg=0;
+        }else{
+          $dg=11-$rest;
+        }if($dg!=$num[9]){
+          $validCpf=false;
+        }
       }
-      else{
-        $cpfValid=true;
-      }
-      
-    }
-  }
+
+      if(!isset($validCpf)){
+          
+          $countValue=11;
+          
+					for($i=0; $i<10; $i++){
+						$multiplica[$i]=$num[$i]*$countValue;
+						$countValue--;
+					}
+          
+          $sum = array_sum($multiplica);
+					$rest = $sum%11;
+          
+          if($rest<2){
+						$dg=0;
+					}else{
+						$dg=11-$rest;
+          }
+          
+          if($dg!=$num[10]){
+						$validCpf=false;
+					}else{
+						$validCpf=true;
+					}
+				}
+
+			return $validCpf;					
+		}
 ?>

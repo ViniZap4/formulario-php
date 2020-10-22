@@ -15,8 +15,8 @@
 
   function createContent($name, $post){
     $content='<span class="viewItem"> 
-<span class="titleView">'.$name.':</span>
-<span class="contentView">'.$post.'</span>  
+  <span class="titleView">'.$name.':</span>
+  <span class="contentView">'.$post.'</span>  
 </span>
   ';
 

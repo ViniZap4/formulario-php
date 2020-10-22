@@ -7,14 +7,14 @@
 
   border-radius: 0.45vmin;
 
-  animation: iniBoxPop 0.9s  linear ;  
+  animation: iniBoxPop 1s 0.27s linear ;  
 
   @include boxShadow();
+
+  .invalidSpam{
+    @include fontDefault(#fff);
+    margin: 2.1vmin;
+  
+  }
 }
 
-.invalidSpam{
-  @include fontDefault(#fff);
-  margin: 2.1vmin;
-
-
-}
