@@ -1,0 +1,40 @@
+@keyframes iniBoxPop {
+  0% {
+    transform: scale3d(1, 1, 1);    
+  }36% {
+   transform: scale3d(1.17, 0.72, 1);
+
+  }42% {
+    transform: scale3d(0.72, 1.17, 1.18);
+  
+  }51% {
+    transform: scale3d(1.17, 0.81, 1);
+  
+  }63% {
+    transform: scale3d(0.9, 1.08, 1.18);
+
+  }72% {
+    transform: scale3d(1.08, 0.9, 1);
+
+  }100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes viewItemHover{
+  0% {
+    transform: scale(1.01); 
+    transform-origin:0px 50vmin ;   
+
+  }51% {
+    transform: scale(1.01);
+    transform-origin: 0px -50vmin;   
+
+  }100% {
+    transform-origin: 0px 50vmin; 
+    transform: scale(1.01);
+  } 
+
+}
+
+

@@ -1,0 +1,44 @@
+/* styles */
+* {
+	margin: 0%;
+	padding: 0%;
+	transition: 0.45s;
+	
+}
+body {
+	@include flexCenter();
+	height: 100vh;
+	width: 100vw;
+	background-color: $primary-color;
+	background-image: url(/img/wall/abstract.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	transition: 0s;
+	@include fontDefault();
+}
+
+@font-face {
+	font-family: "comfortaa";
+	src: url('../../fonts/comfortaa/static/Comfortaa-VariableFont_wght.ttf');
+	src: url("../../fonts/Comfortaa/regular/Comfortaa-Regular.woff") format("woff"),
+	url("../../fonts/Comfortaa/regular/Comfortaa-Regular.svg") format("svg");
+}
+
+input, select{
+  outline: 0;
+  border:none;
+  background-color: none;
+  &:hover, &:focus{
+    outline: 0;
+    border:none;
+    background-color: none;
+  }  
+}
+
+
+
+::selection {
+	background-color:$primary-color;
+	color: #fff;
+}

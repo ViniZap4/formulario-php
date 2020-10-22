@@ -1,0 +1,45 @@
+$primary-color:#1d7783;
+$font-size: 2vh;
+$relativeWidth: 90%;
+$marginLine:0.9vh 3.6vw;
+$alertColor: #e04203;
+
+//2d94a2
+  
+@mixin flexCenter($align:center,$justify:center){
+  display: flex;
+	align-items: $align;
+	justify-content: $justify;
+}
+@mixin backgroundBlur($color:#dadadac7, $blur:1vmin){
+  background-color:$color;
+  backdrop-filter: blur($blur);
+
+}
+
+@mixin lineForm(){
+  @include flexCenter();
+  flex-direction:column;
+  margin: $marginLine;
+  width: 81%;
+}
+
+@mixin boxContainer($width:max-content, $height:max-content,$border:0.18vmin) {
+  min-width: $width;
+  min-height: $height;
+  border-radius: $border;
+}
+
+@mixin boxShadow($power: 9vmin ,$color:#505050){
+  box-shadow: 0 0 $power $color;
+}
+@mixin fontDefault($color:$primary-color, $size:$font-size) {
+  font-family: "comfortaa";
+  color:  $color;
+  font-size: $size;
+}
+
+@mixin transformScale($scale, $power: 9vmin ,$color:#979797) {
+  transform:scale($scale);
+  @include boxShadow($power, $color);
+}

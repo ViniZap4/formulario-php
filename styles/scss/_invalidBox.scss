@@ -1,0 +1,20 @@
+.invalidBox{
+  @include flexCenter();
+  position: absolute;
+  top:5vh;
+
+  @include backgroundBlur(rgba(255, 28, 28, 0.842));
+
+  border-radius: 0.45vmin;
+
+  animation: iniBoxPop 0.9s  linear ;  
+
+  @include boxShadow();
+}
+
+.invalidSpam{
+  @include fontDefault(#fff);
+  margin: 2.1vmin;
+
+
+}

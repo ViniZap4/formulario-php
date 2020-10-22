@@ -1,0 +1,112 @@
+.form-box {
+  @include flexCenter();
+  flex-direction:column;
+  @include boxContainer();
+  @include backgroundBlur();
+  @include boxShadow();
+  animation: iniBoxPop 1s linear;  
+  padding-top: 1.8vmin;
+}
+.line{
+  @include lineForm();
+
+  .label{
+    width: 100%;
+    @include fontDefault();
+    margin: 0.6vmin 0vmin;
+    font-weight: 900;
+  }
+
+  .placeInput{
+    @include flexCenter();
+    flex-direction:column;
+    width: 100%;
+    background-color:#fff;
+    border-radius: 0.4vmin;
+    
+    .inputText{
+      width: 100%;
+      background-color:transparent;
+      text-align:center;
+      @include fontDefault(#000);
+      margin-top: 0.4vmin;
+      &:hover~.underlineAnimated, &:focus~.underlineAnimated{
+        width: 100%;
+        @include boxShadow(4vmin 0.3vmin, $primary-color);
+      }
+    }
+    .inputText:required:valid{
+      width: 100%;
+      background-color:transparent;
+      text-align:center;
+      @include fontDefault(#000);
+      margin-top: 0.4vmin;
+      &:hover~.underlineAnimated, &:focus~.underlineAnimated{
+        width: 100%;
+        @include boxShadow(4vmin 0.3vmin, $primary-color);
+      }
+    }
+    .inputText:required:invalid{
+      width: 100%;
+      background-color:transparent;
+      text-align:center;
+      @include fontDefault($alertColor);
+      margin-top: 0.4vmin;
+      &:hover~.underlineAnimated, &:focus~.underlineAnimated{
+        width: 100%;
+        background-color: $alertColor;
+        @include boxShadow(4vmin 0.3vmin, $alertColor);
+      }
+     
+    }
+
+    .underlineAnimated{
+      @include flexCenter();
+      height: 0.4vmin;
+      border-radius:0.9vmin;
+      width: 0%;
+      background-color: $primary-color;
+    }
+
+    &:hover .inputText:required:valid~.underlineAnimated, &:hover .underlineAnimated{
+      width: 100%;
+      @include boxShadow(4vmin 0.3vmin, $primary-color);
+    }
+    &:hover .inputText:required:invalid~.underlineAnimated{
+      background-color: $alertColor;
+      width: 100%;
+      @include boxShadow(4vmin 0.3vmin, $alertColor);
+    }
+    
+  }
+}
+
+.buttonLine{
+  @include lineForm();
+  margin-bottom:2.1vmin;
+  margin-top:0.9vmin;
+
+  .buttonForm{
+    border:0.27vmin solid $primary-color;
+    background-color: #ffffffdc;
+    @include fontDefault($primary-color,1.8vh);
+    padding:0.36vmin 0.18vmin;
+    width: 100%;
+    border-radius: 0.4vmin;
+    cursor: pointer;
+    font-weight: 900;
+
+    &:hover, &:focus{
+      font-weight: 200;
+      background-color:$primary-color;
+      color:#fff;
+      border-radius: 0vmin;
+      @include transformScale(1.05, 1.8vmin,$primary-color);
+    }
+  }
+}
+
+select *{
+  margin: 0;
+  @include backgroundBlur();
+}
