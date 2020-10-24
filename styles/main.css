@@ -120,45 +120,33 @@ input:hover, input:focus, select:hover, select:focus {
   }
 }
 
-@-webkit-keyframes viewItemHover {
+@-webkit-keyframes iniIvalidBox {
   0% {
-    -webkit-transform: scale(1.01);
-            transform: scale(1.01);
-    -webkit-transform-origin: 0px 50vmin;
-            transform-origin: 0px 50vmin;
+    -webkit-transform: rotateX(-30deg) translateX(30vw) skewX(30deg);
+            transform: rotateX(-30deg) translateX(30vw) skewX(30deg);
+    opacity: 0;
   }
-  51% {
-    -webkit-transform: scale(1.01);
-            transform: scale(1.01);
-    -webkit-transform-origin: 0px -50vmin;
-            transform-origin: 0px -50vmin;
+  20% {
+    opacity: 1;
   }
   100% {
-    -webkit-transform-origin: 0px 50vmin;
-            transform-origin: 0px 50vmin;
-    -webkit-transform: scale(1.01);
-            transform: scale(1.01);
+    -webkit-transform: rotateX(0deg) translateX(0) skewX(0deg);
+            transform: rotateX(0deg) translateX(0) skewX(0deg);
   }
 }
 
-@keyframes viewItemHover {
+@keyframes iniIvalidBox {
   0% {
-    -webkit-transform: scale(1.01);
-            transform: scale(1.01);
-    -webkit-transform-origin: 0px 50vmin;
-            transform-origin: 0px 50vmin;
+    -webkit-transform: rotateX(-30deg) translateX(30vw) skewX(30deg);
+            transform: rotateX(-30deg) translateX(30vw) skewX(30deg);
+    opacity: 0;
   }
-  51% {
-    -webkit-transform: scale(1.01);
-            transform: scale(1.01);
-    -webkit-transform-origin: 0px -50vmin;
-            transform-origin: 0px -50vmin;
+  20% {
+    opacity: 1;
   }
   100% {
-    -webkit-transform-origin: 0px 50vmin;
-            transform-origin: 0px 50vmin;
-    -webkit-transform: scale(1.01);
-            transform: scale(1.01);
+    -webkit-transform: rotateX(0deg) translateX(0) skewX(0deg);
+            transform: rotateX(0deg) translateX(0) skewX(0deg);
   }
 }
 
@@ -428,8 +416,8 @@ select * {
 }
 
 .viewItem:hover, .viewItem:focus {
-  -webkit-animation: viewItemHover 1.8s linear infinite;
-          animation: viewItemHover 1.8s linear infinite;
+  -webkit-animation: viewItemHover 1.8s infinite;
+          animation: viewItemHover 1.8s infinite;
 }
 
 .viewItem .titleView {
@@ -465,6 +453,11 @@ select * {
   font-size: 2.1vh;
 }
 
+.floatBox {
+  position: absolute;
+  top: 5vh;
+}
+
 .invalidBox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -475,16 +468,15 @@ select * {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: absolute;
-  top: 5vh;
+  margin: 2.1vmin;
   background-color: rgba(255, 28, 28, 0.842);
   -webkit-backdrop-filter: blur(1vmin);
           backdrop-filter: blur(1vmin);
   border-radius: 0.45vmin;
-  -webkit-animation: iniBoxPop 1s 0.27s linear;
-          animation: iniBoxPop 1s 0.27s linear;
-  -webkit-box-shadow: 0 0 9vmin #505050;
-          box-shadow: 0 0 9vmin #505050;
+  -webkit-animation: iniIvalidBox 0.45s  linear;
+          animation: iniIvalidBox 0.45s  linear;
+  -webkit-box-shadow: 0 0 3vmin #2e2e2e;
+          box-shadow: 0 0 3vmin #2e2e2e;
 }
 
 .invalidBox .invalidSpam {
@@ -492,5 +484,10 @@ select * {
   color: #fff;
   font-size: 2vh;
   margin: 2.1vmin;
+}
+
+#rgIvalidBox {
+  -webkit-animation: iniIvalidBox 0.63s  linear;
+          animation: iniIvalidBox 0.63s  linear;
 }
 /*# sourceMappingURL=main.css.map */

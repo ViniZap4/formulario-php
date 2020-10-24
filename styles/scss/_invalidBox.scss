@@ -1,15 +1,20 @@
-.invalidBox{
-  @include flexCenter();
+.floatBox{
   position: absolute;
   top:5vh;
+}
+
+.invalidBox{
+  @include flexCenter();
+  margin: 2.1vmin;
+
 
   @include backgroundBlur(rgba(255, 28, 28, 0.842));
 
   border-radius: 0.45vmin;
 
-  animation: iniBoxPop 1s 0.27s linear ;  
+  animation: iniIvalidBox 0.45s  linear ;  
 
-  @include boxShadow();
+  @include boxShadow(3vmin, rgb(46, 46, 46));
 
   .invalidSpam{
     @include fontDefault(#fff);
@@ -17,4 +22,7 @@
   
   }
 }
+#rgIvalidBox{
+  animation: iniIvalidBox 0.63s  linear ;  
 
+}

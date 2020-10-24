@@ -3,7 +3,7 @@
 $cpf = $_POST['cpf'];
 $rg = $_POST['rg'];
 
-if(validCpf($cpf) == true){
+if(validCpf($cpf) == true and ValidRg($rg) == true){
 
   
   $filename = '../content/data-base.html';
@@ -65,6 +65,8 @@ if(validCpf($cpf) == true){
   }else {
     echo "<h1> Arquivo não existe! </h1>";
   }
+
+
   
  echo  '
   </div>
@@ -83,14 +85,25 @@ if(validCpf($cpf) == true){
 
   fclose($file);
 
-  $file= fopen("../components/invalidCpf.html","r");
-    
-  while(!feof($file)){
-    $line = fgets($file);
-    echo $line;
+  echo "<div class='floatBox'> ";
+
+  if (validCpf($cpf) != true){
+    echo '<div class="invalidBox">
+    <spam class="invalidSpam">
+      CPF invalido! tente novamente.
+    </spam>
+  </div>';
   }
 
-  fclose($file);
+  if (validRg($rg) != true){
+    echo '<div id="rgIvalidBox" class="invalidBox">
+    <spam  class="invalidSpam">
+      RG invalido! tente novamente.
+    </spam>
+  </div>';
+  }
+
+  echo "</div> ";
 
 }
 
@@ -146,7 +159,9 @@ if(validCpf($cpf) == true){
           $dg=0;
         }else{
           $dg=11-$rest;
-        }if($dg!=$num[9]){
+        }
+        
+        if($dg!=$num[9]){
           $validCpf=false;
         }
       }
@@ -178,4 +193,76 @@ if(validCpf($cpf) == true){
 
 			return $validCpf;					
 		}
+?>
+
+<?php
+  function ValidRg($rg){
+
+    if (strtolower(substr($rg, -1)) == "x" ){
+      $rg .=0;
+    }
+    
+    $countValue=0;
+
+    for($i=0; $i<(strlen($rg)); $i++){
+        if(is_numeric($rg[$i])){
+          $num[$countValue]=$rg[$i];
+          $countValue++;
+        }
+    }
+
+
+
+
+    if(count($num)!=9){
+      $validRg = false;
+    }else{
+      $valid = 0;
+      for($i=0; $i<8;$i++){ // validar numeros de 0 à 9
+          
+        for($countValue=0; $countValue<11; $countValue++){ // validar casa da váriavel numbers
+
+          if ($num[$countValue]==$i){
+
+            if($valid == 8){  // validar se todos os valores da váriavel numbers são iguais 
+              $validRg = false;
+              break; 
+            }else $valid++;
+
+          }else{
+            $valid = 0;
+            break;
+          }
+        }
+      }
+    }
+
+
+
+
+    if(!isset($validRg)){
+      for($i=2;$i<=10;$i++){
+      
+        if($i==10){
+          $multiplication[$i-2] = $num[$i-2] * 100;
+  
+        }else{
+          $multiplication[$i-2] = $num[$i-2] * $i;
+        }
+        
+      }
+  
+      $sum = array_sum($multiplication);
+  
+      if($sum%11 == 0){
+        $validRg = true;
+      }else{
+        $validRg = false;
+      }
+    }
+
+
+    return $validRg;
+
+  }
 ?>

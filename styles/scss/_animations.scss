@@ -21,20 +21,33 @@
   }
 }
 
-@keyframes viewItemHover{
-  0% {
-    transform: scale(1.01); 
-    transform-origin:0px 50vmin ;   
 
-  }51% {
-    transform: scale(1.01);
-    transform-origin: 0px -50vmin;   
-
-  }100% {
-    transform-origin: 0px 50vmin; 
-    transform: scale(1.01);
-  } 
-
+@keyframes iniIvalidBox{
+  0%{
+    transform: rotateX(-30deg) translateX(30vw) skewX(30deg);
+    opacity: 0;
+  }20%{
+    opacity: 1;
+  }100%{
+    transform: rotateX(0deg) translateX(0) skewX(0deg);
+    
+  }
 }
+
+// @keyframes viewItemHover{
+//   0% {
+//     transform: rotateX(15deg);
+//     transform-origin: 0px -20vmin;   
+
+//   }50% {
+//     transform-origin: 0px 20vmin; 
+//     transform: rotateX(-15deg);
+//   }100% {
+//     transform: rotateX(15deg);
+//     transform-origin: 0px -20vmin;   
+
+//   } 
+
+// }
 
 
