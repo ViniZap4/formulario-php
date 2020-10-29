@@ -18,7 +18,7 @@ function Form() {
   }
 
   return(
-    <form  className="form-box" action="../actions/viewData.php" method="post" id="formScholarity">
+    <form  className="form-box" action="../index.php" method="post" id="formScholarity">
       <LineForm lineLabel="Escolaridade:">
         <select  required form="formScholarity" className="inputText" name="scholarity" id="scholarity">
           <Option value="Ensino médio incompleto" />

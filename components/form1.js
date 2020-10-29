@@ -12,7 +12,7 @@ function Form1(){
 // Form content
 function Form() {
   return(
-    <form  className="form-box" action="../actions/step1.php" method="post">
+    <form  className="form-box" action="../index.php" method="post">
       <LineForm lineLabel="nickname:">
         <input required="required" placeholder="Digite seu nickname" className="inputText" type="text" name="nickname" />
       </LineForm>
