@@ -486,7 +486,7 @@ select * {
   margin: 2.1vmin;
 }
 
-#rgIvalidBox {
+#RG {
   -webkit-animation: iniIvalidBox 0.63s  linear;
           animation: iniIvalidBox 0.63s  linear;
 }

@@ -1,4 +1,3 @@
-
 function Form3(){
 
   return(
@@ -7,7 +6,6 @@ function Form3(){
     </div>
   )
 }
-
 
 // Form content
 function Form() {
@@ -41,7 +39,6 @@ function Form() {
   )
 }
 
-
 function LineForm(props){
   return(
     <p className="line">
@@ -53,6 +50,5 @@ function LineForm(props){
     </p>
   )
 }
-
 
 ReactDOM.render(<Form3 />, document.getElementById('content'))
